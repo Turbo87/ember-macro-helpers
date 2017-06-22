@@ -1,3 +1,8 @@
+import {
+  ARRAY_EACH,
+  ARRAY_LENGTH
+} from './-constants';
+
 export default function(array, keys = []) {
   // this macro support should be extracted out
   // we should only deal with string keys in here
@@ -7,7 +12,7 @@ export default function(array, keys = []) {
 
   let props;
 
-  let i = array.indexOf('.@each');
+  let i = array.indexOf(ARRAY_EACH);
   if (i !== -1) {
     let chain = array.split('.');
     let end = chain[chain.length - 1];
@@ -17,7 +22,7 @@ export default function(array, keys = []) {
       props = [end];
     }
   } else {
-    i = array.indexOf('.[]');
+    i = array.indexOf(ARRAY_LENGTH);
     props = [];
   }
 
